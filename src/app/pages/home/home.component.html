@@ -1,0 +1,31 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found [visible]="!foods || foods.length <= 0" resetLinkText="Reset Search"></app-not-found>
+<ul>
+  <li *ngFor="let food of foods">
+    <a routerLink="/food/{{ food.id }}">
+      <img src="{{ food.imageUrl }}" alt="">
+      <div class="content">
+        <div class="name">
+          {{ food.name }}
+        </div>
+        <span class="favorite">
+          <img *ngIf="food.favorite" src="/assets/icons/heart-full.svg" alt="Full Heart">
+          <img *ngIf="!food.favorite" src="/assets/icons/heart-empty.svg" alt="Empty Heart">
+        </span>
+
+          <div class="cook-time">
+              <span>
+                <img src="/assets/icons/clock.svg" alt="">
+              </span>
+              {{food.cookTime}}
+          </div>
+      </div>
+      <div class="price">
+          <span>
+              {{food.price|currency:'INR'}}
+          </span>
+      </div>
+    </a>
+  </li>
+</ul>
