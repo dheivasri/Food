@@ -12,6 +12,9 @@ import { FoodPageComponent } from './pages/food-page/food-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [
     {provide: LocationStrategy,useClass:HashLocationStrategy}

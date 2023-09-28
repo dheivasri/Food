@@ -11,23 +11,21 @@ import { Cart } from 'src/app/shared/models/cart.class';
 export class CartPageComponent {
 
   cart!: Cart;
+  quantityOptions: number[] = Array.from({ length: 9999 }, (_, i) => i + 1);
+
   constructor(private cartService: CartService) {
     this.setCart();
   }
-
 
   removeFromCart(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.food.id);
     this.setCart();
   }
 
-
-  changeQuantity(cartItem: CartItem, quantityInString: string) {
-    const quantity = parseInt(quantityInString);
+  changeQuantity(cartItem: CartItem, quantity: number) {
     this.cartService.changeQuantity(cartItem.food.id, quantity);
     this.setCart();
   }
-
 
   setCart() {
     this.cart = this.cartService.getCart();
